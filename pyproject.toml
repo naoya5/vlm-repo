@@ -1,0 +1,12 @@
+[project]
+name = "vlm-repo"
+version = "0.1.0"
+description = "VLMを試すリポジトリ"
+requires-python = ">=3.12.3"
+dependencies = [
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
+    "pillow>=10.0.0",
+    "openai>=1.0.0",
+    "requests>=2.31.0",
+]
