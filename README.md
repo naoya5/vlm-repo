@@ -3,7 +3,7 @@ VLMを試すリポジトリ
 
 ## 概要
 このリポジトリは、Vision Language Model (VLM) を試すための環境です。
-以下の2つの方法でVLMを使用できます：
+以下の方法でVLMを使用できます：
 
 1. **Transformers ライブラリを使用** (`vlm_transformers.py`)
    - HuggingFaceのモデルを直接使用
@@ -14,6 +14,11 @@ VLMを試すリポジトリ
    - OpenAI GPT-4 Vision APIを使用
    - APIキーが必要
    - 常にインターネット接続が必要
+
+3. **R-4B モデルを使用** (`R-4B/vlm_r4b.py`)
+   - YannQi/R-4B 専用スクリプト
+   - HuggingFaceのR-4Bモデルを使用
+   - 詳細は `R-4B/README.md` を参照
 
 ## セットアップ
 
@@ -67,6 +72,20 @@ uv run python vlm_api.py sample.jpg "この画像には何が写っています�
 - API使用料金が発生します
 - インターネット接続が必要です
 
+### R-4B モデルを使用する場合
+
+```bash
+# R-4Bモデルでスクリプトを実行
+uv run python R-4B/vlm_r4b.py <画像パス> "<質問>"
+
+# 例：
+uv run python R-4B/vlm_r4b.py sample.jpg "この画像には何が写っていますか？"
+```
+
+**注意:**
+- R-4Bモデルがダウンロードされます（数GB）
+- 詳細な使用方法は `R-4B/README.md` を参照してください
+
 ## ファイル構成
 
 ```
@@ -76,7 +95,11 @@ vlm-repo/
 ├── pyproject.toml       # プロジェクト設定と依存関係
 ├── README.md            # このファイル
 ├── vlm_transformers.py  # Transformersを使用したVLM実装
-└── vlm_api.py          # APIを使用したVLM実装
+├── vlm_api.py          # APIを使用したVLM実装
+└── R-4B/               # R-4Bモデル専用ディレクトリ
+    ├── README.md        # R-4Bの使用方法
+    ├── example.md       # 使用例
+    └── vlm_r4b.py      # R-4Bモデル実行スクリプト
 ```
 
 ## 依存関係
